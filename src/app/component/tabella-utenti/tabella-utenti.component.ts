@@ -21,7 +21,7 @@ export class TabellaUtentiComponent implements OnInit {
     this.users=this.servizio.getUsers();
     console.log(JSON.stringify(this.users));
     let userIn = this.servizio.getUserSingle(this.id);
-    this.servizio.settoMod(userIn);
+    this.servizio.settoMod(userIn!);
 
   }
   SavedId(id:number){

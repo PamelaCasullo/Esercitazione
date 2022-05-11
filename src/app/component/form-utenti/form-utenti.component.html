@@ -9,12 +9,11 @@
     <br>
     Password Utente: <input type="text" name="password" #passwordInput="ngModel" required [ngModel]="user!.password">
     <br>
-    
-    <div *ngFor="let nome of citta">
-       <input type="radio" id="{{nome.nome}}" [value]="nome.nome" #cittaInput="ngModel" [ngModel]="nome!.nome" name="PROVA">
-       <label for="{{nome.nome}}" name="citta"> {{nome.nome}} </label>
+    <div *ngFor="let nomes of citta">
+       <input type="radio" id="{{nomes.nome}}" value="{{nomes.nome}}" #cittaInput="ngModel" [(ngModel)]="nomes.nome" name="PROVA" (change)="valore($event)">
+       <label for="{{nomes.nome}}" name="citta"> {{nomes.nome}} </label>
     </div>
 
-    <input type="submit" >INVIA
+    <input type="submit" name="Invia">
 
 </form>

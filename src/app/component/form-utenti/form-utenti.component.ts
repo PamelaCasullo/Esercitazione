@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { isEmpty } from 'rxjs';
 import { Città } from 'src/app/model/Città';
 import { User } from 'src/app/model/User';
 import { ServizioService } from 'src/app/services/servizio.service';
@@ -15,22 +14,29 @@ export class FormUtentiComponent implements OnInit {
   public citta: Città[]=[];
   public user :User={};
   public userOne:User[]=[];
+  public singleCity:Città={};
 
   ngOnInit(): void {
    this.citta = this.servizio.getCittà();
     
   }
+  valore(e:Event){  
+     console.log((<HTMLTextAreaElement>e.target).getAttribute("id"));
+     this.singleCity.nome =(<HTMLTextAreaElement>e.target).getAttribute("id")!;
+     console.log("DENTRO VALORE "+this.singleCity.nome);
+  }
   InvioForm(value:any){
     console.log("Form in fase di invio");
-    let risultato:User=this.servizio.valorizzaUtente(value);
-    if(risultato.toString().length<=0){
-      console.log("ERRORE");
+    console.log("SingleCity, tipo = "+ typeof this.singleCity.nome);
+    console.log(this.singleCity.nome);
+    if(typeof this.singleCity.nome == "undefined"){
+      alert("INSERISCI UNA CITTA' PRIMA DI INVIARE IL FORM!!");
+    } else {
+    let risultato=this.servizio.valorizzaUtente(value,this.singleCity);
+    if(risultato!=null)
+      this.servizio.addToUserList(risultato!);
+    else alert("ERRORE DI INSERIMENTO UTENTE!INSERISCI TUTTI I PARAMETRI");
     }
-    else {
-      this.servizio.addToUserList(risultato);
-    }
-    
-   
   }
 
   check(users:User[]):boolean{
