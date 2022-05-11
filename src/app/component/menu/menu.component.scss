@@ -1,0 +1,23 @@
+ul {
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+}
+#menu li{
+    display: inline-block;
+    position: relative;
+}
+#menu{
+    width:100%;
+    background-color:darkblue;
+    border-radius:6px;
+    text-align:center;
+}
+li a {
+   text-decoration: none;
+   font: bold 12px Arial;
+   display: block;
+   padding: 12px;
+   border-right: 1px;
+   color: #fff;
+}

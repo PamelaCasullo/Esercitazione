@@ -1,0 +1,9 @@
+<div>
+    <ul id="menu">
+        <li *ngFor="let m of lstMenu">
+            <a [href]="'#/'+m.link+'?param='+m.nome!">
+                {{m.voce}}
+            </a>
+        </li>
+    </ul>
+</div>

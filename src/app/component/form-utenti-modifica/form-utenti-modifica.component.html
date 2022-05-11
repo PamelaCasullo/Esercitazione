@@ -1,0 +1,22 @@
+<h1>MODIFICA UTENTE INSERITO</h1>
+
+<form #nomeForm="ngForm" (ngSubmit)="InvioForm(nomeForm.value)">
+
+    Email: <input type="text" name="email" #emailInput="ngModel" required [(ngModel)]="user!.email">
+    <br>
+    Nome Utente: <input type="text" name="username" #usernameInput="ngModel" required [(ngModel)]="user!.username">
+ 
+    <br>
+    Password Utente: <input type="text" name="password" #passwordInput="ngModel" required [(ngModel)]="user!.password">
+
+    <br>
+
+    <div *ngFor="let u of citta">
+       <input type="radio" id="{{u.nome}}" value="{{u.nome}}"  name="PROVA">
+       <label for="{{u.nome}}" [(ngModel)]="u.nome" name="citta"> {{u.nome}} </label>
+    </div>
+  
+
+    <button >INVIA</button>
+
+</form>

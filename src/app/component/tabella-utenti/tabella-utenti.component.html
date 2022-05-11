@@ -1,0 +1,22 @@
+<h1>VISUALIZZAZIONE UTENTI</h1>
+<table>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>email</th>
+      <th>città</th>
+    </tr>
+   
+<tr *ngFor ="let item of users; index as i; ">
+   <th> {{item.id}}</th>
+   <th> {{item.username}}</th>
+   <th> {{item.password}}</th>
+   <th> {{item.email}}</th>
+   <th> {{item.citta!.nome}}</th>
+
+   <div ><a href="#/Utent?param={{item.id}}"><button name ="Modifica Utente" value="modifica" (click)="SavedId(item.id!)" >Modifica</button></a></div>
+
+</tr>
+   
+

@@ -1,0 +1,20 @@
+
+<h1>INSERIMENTO NUOVI UTENTI</h1>
+
+<form #nomeForm="ngForm" (ngSubmit)="InvioForm(nomeForm.value)">
+
+    Email: <input type="text" name="email" #emailInput="ngModel" required [(ngModel)]="user!.email">
+    <br>
+    Nome Utente: <input type="text" name="username" #usernameInput="ngModel" required [ngModel]="user!.username">
+    <br>
+    Password Utente: <input type="text" name="password" #passwordInput="ngModel" required [ngModel]="user!.password">
+    <br>
+    
+    <div *ngFor="let nome of citta">
+       <input type="radio" id="{{nome.nome}}" [value]="nome.nome" #cittaInput="ngModel" [ngModel]="nome!.nome" name="PROVA">
+       <label for="{{nome.nome}}" name="citta"> {{nome.nome}} </label>
+    </div>
+
+    <input type="submit" >INVIA
+
+</form>
